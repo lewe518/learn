@@ -15,6 +15,7 @@
         <module>annotationprocessing</module>
         <module>leetcode</module>
         <module>log</module>
+        <module>aviator</module>
     </modules>
 
     <properties>
