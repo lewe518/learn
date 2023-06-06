@@ -16,6 +16,7 @@
         <module>leetcode</module>
         <module>log</module>
         <module>aviator</module>
+        <module>spring-proxy-bean</module>
     </modules>
 
     <properties>
