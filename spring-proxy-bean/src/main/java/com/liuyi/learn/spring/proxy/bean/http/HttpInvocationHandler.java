@@ -1,5 +1,7 @@
 package com.liuyi.learn.spring.proxy.bean.http;
 
+import com.liuyi.learn.spring.proxy.bean.http.anno.HttpOperation;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.net.URI;

@@ -1,4 +1,4 @@
-package com.liuyi.learn.spring.proxy.bean.http;
+package com.liuyi.learn.spring.proxy.bean.http.anno;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
