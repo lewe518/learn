@@ -1,6 +1,6 @@
 package com.liuyi.learn.spring.proxy.bean.controller;
 
-import com.liuyi.learn.spring.proxy.bean.demo.CustomerHttpService;
+import com.liuyi.learn.spring.proxy.bean.demo.BaiduHttpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
     @Autowired
-    private CustomerHttpService customerHttpService;
+    private BaiduHttpService baiduHttpService;
 
     @RequestMapping("/")
     public String index() {
-        return customerHttpService.getAllCustoms();
+        return baiduHttpService.getBaiduHomePage();
     }
 }
