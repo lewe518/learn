@@ -11,6 +11,6 @@ import com.liuyi.learn.spring.proxy.bean.http.anno.HttpOperation;
  */
 @HttpComponent
 public interface BaiduHttpService {
-    @HttpOperation(url = "https://www.baidu.com")
+    @HttpOperation(url = "https://www.baidu.com", method = "GET", timeoutSeconds = 5)
     String getBaiduHomePage();
 }
