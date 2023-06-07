@@ -1,35 +1,32 @@
 package com.liuyi.learn.spring.proxy.bean.spring;
 
 import com.liuyi.learn.spring.proxy.bean.http.anno.HttpComponent;
+import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
-import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
-import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
 /**
- * RepositoryScannerRegistrar
+ * HttpComponentScanner
  *
  * @author xc_liuyi
- * Create at: 2023/6/6
+ * Create at: 2023/6/7
  */
-@Component
-public class RepositoryScannerRegistrar extends ClassPathBeanDefinitionScanner
-        implements ImportBeanDefinitionRegistrar {
-
-    public RepositoryScannerRegistrar(BeanDefinitionRegistry registry) {
+public class HttpComponentScanner extends ClassPathBeanDefinitionScanner {
+    public HttpComponentScanner(BeanDefinitionRegistry registry) {
         super(registry);
     }
 
-    @Override
-    public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry registry) {
-        doScan("com.liuyi.learn.spring.proxy.bean");
-        addIncludeFilter((a, b) -> a.getAnnotationMetadata().hasAnnotation(HttpComponent.class.getName()));
+    public void registerFilters(boolean includeAll) {
+        if (includeAll) {
+            addIncludeFilter((a, b) -> true);
+        } else {
+            addIncludeFilter((a, b) -> a.getAnnotationMetadata().hasAnnotation(HttpComponent.class.getName()));
+        }
     }
 
     @Override
@@ -43,5 +40,10 @@ public class RepositoryScannerRegistrar extends ClassPathBeanDefinitionScanner
             beanDefinition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
         }
         return beanDefinitionHolders;
+    }
+
+    @Override
+    protected boolean isCandidateComponent(AnnotatedBeanDefinition beanDefinition) {
+        return beanDefinition.getMetadata().isInterface() && beanDefinition.getMetadata().isIndependent();
     }
 }

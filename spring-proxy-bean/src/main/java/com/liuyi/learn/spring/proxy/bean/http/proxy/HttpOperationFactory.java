@@ -1,4 +1,4 @@
-package com.liuyi.learn.spring.proxy.bean.http;
+package com.liuyi.learn.spring.proxy.bean.http.proxy;
 
 import java.lang.reflect.Proxy;
 

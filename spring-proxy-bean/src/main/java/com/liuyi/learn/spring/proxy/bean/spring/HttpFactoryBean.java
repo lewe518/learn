@@ -1,6 +1,6 @@
 package com.liuyi.learn.spring.proxy.bean.spring;
 
-import com.liuyi.learn.spring.proxy.bean.http.HttpOperationFactory;
+import com.liuyi.learn.spring.proxy.bean.http.proxy.HttpOperationFactory;
 import org.springframework.beans.factory.FactoryBean;
 
 /**

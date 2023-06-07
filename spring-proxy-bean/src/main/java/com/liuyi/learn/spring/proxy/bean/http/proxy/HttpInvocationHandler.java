@@ -1,4 +1,4 @@
-package com.liuyi.learn.spring.proxy.bean.http;
+package com.liuyi.learn.spring.proxy.bean.http.proxy;
 
 import com.liuyi.learn.spring.proxy.bean.http.anno.HttpOperation;
 
@@ -23,6 +23,9 @@ public class HttpInvocationHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         HttpOperation anno = method.getAnnotation(HttpOperation.class);
+        if (anno == null) {
+            return method.invoke(this, args);
+        }
 
         HttpRequest.Builder builder = getHttpRequest(anno, args);
 
