@@ -17,6 +17,7 @@
         <module>log</module>
         <module>aviator</module>
         <module>spring-proxy-bean</module>
+        <module>time</module>
     </modules>
 
     <properties>
