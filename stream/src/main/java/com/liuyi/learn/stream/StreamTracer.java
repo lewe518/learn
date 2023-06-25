@@ -1,5 +1,6 @@
 package com.liuyi.learn.stream;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class StreamTracer {
@@ -8,6 +9,6 @@ public class StreamTracer {
                 .filter(i -> i % 2 == 0)
                 .map(i -> i * 2)
                 .toArray();
-        System.out.println(result);
+        System.out.println(Arrays.toString(result));
     }
 }
