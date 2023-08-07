@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class BService {
-    @Autowired
     private CService cService;
+    public BService(CService cService) {
+        this.cService = cService;
+    }
 }

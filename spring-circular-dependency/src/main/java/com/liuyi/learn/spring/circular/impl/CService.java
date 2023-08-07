@@ -1,6 +1,5 @@
 package com.liuyi.learn.spring.circular.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,6 +10,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CService {
-    @Autowired
     private AService aService;
+    public CService(AService aService) {
+        this.aService = aService;
+    }
 }
