@@ -17,7 +17,7 @@ public class BinarySearch {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right) {
-            int middle = (right + left) / 2;
+            int middle = (right + left) >>> 1;
             // 相等则返回结果
             if (nums[middle] == target) {
                 return middle;
